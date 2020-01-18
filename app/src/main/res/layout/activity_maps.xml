@@ -29,17 +29,17 @@
             android:text="Petrol Price"
             android:textColor="#000000"
             android:textSize="40sp"
-            android:id="@+id/display_price"/>
+            android:id="@+id/display_price1"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/display_price"
+            android:layout_below="@+id/display_price1"
             android:text="Rs. 76 per litre"
             android:textColor="#000000"
             android:textSize="40sp"
             android:layout_centerHorizontal="true"
-            android:id="@+id/data_price"/>
+            android:id="@+id/data_price1"/>
 
     </RelativeLayout>
 
