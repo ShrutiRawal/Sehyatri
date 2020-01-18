@@ -39,8 +39,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setUpBottomNavigationView();
-        TextView display_fuel = (TextView)findViewById(R.id.display_fuel);
-        TextView data_fuel = (TextView)findViewById(R.id.data_fuel);
+        TextView display_fuel = (TextView)findViewById(R.id.display_fuel1);
+        TextView data_fuel = (TextView)findViewById(R.id.data_fuel1);
 
 
         notification = new NotificationCompat.Builder(this);
