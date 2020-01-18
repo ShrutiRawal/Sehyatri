@@ -24,8 +24,8 @@ public class MapsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         setUpBottomNavigationView();
-        TextView display_price = (TextView)findViewById(R.id.display_price);
-        TextView data_price = (TextView)findViewById(R.id.data_price);
+        TextView display_price1 = (TextView)findViewById(R.id.display_price1);
+        TextView data_price1 = (TextView)findViewById(R.id.data_price1);
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
