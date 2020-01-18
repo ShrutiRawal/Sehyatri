@@ -17,12 +17,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MapsActivity extends AppCompatActivity {
     private static final int ActivityNum = 1;
     private Button button;
+    TextView display_price , data_price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         setUpBottomNavigationView();
+        TextView display_price = (TextView)findViewById(R.id.display_price);
+        TextView data_price = (TextView)findViewById(R.id.data_price);
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

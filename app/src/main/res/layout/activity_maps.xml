@@ -16,6 +16,33 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relLayout3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Petrol Price"
+            android:textColor="#000000"
+            android:textSize="40sp"
+            android:id="@+id/display_price"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/display_price"
+            android:text="Rs. 76 per litre"
+            android:textColor="#000000"
+            android:textSize="40sp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/data_price"/>
+
+    </RelativeLayout>
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"

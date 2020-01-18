@@ -31,22 +31,16 @@ public class HomeActivity extends AppCompatActivity {
 
     NotificationCompat.Builder notification;
     private static final int uniqueID = 45612;
-    private TextView data;
     private static final int ActivityNum = 0;
-    private Button sendNotif;
+    TextView display_fuel , data_fuel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setUpBottomNavigationView();
-        Button sendNotif = findViewById(R.id.sendNotif);
-        sendNotif.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                button(v);
-            }
-        });
+        TextView display_fuel = (TextView)findViewById(R.id.display_fuel);
+        TextView data_fuel = (TextView)findViewById(R.id.data_fuel);
 
 
         notification = new NotificationCompat.Builder(this);
