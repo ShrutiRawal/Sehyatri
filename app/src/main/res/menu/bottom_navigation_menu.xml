@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/iot"
+        android:title=""
+        android:icon="@drawable/ic_iot">
+
+    </item>
+
+    <item
+        android:id="@+id/ppump"
+        android:title=""
+        android:icon="@drawable/ic_petrol_pump">
+
+    </item>
+
+</menu>

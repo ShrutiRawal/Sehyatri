@@ -3,6 +3,7 @@ package com.example.codeutsava;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.NotificationChannel;
@@ -12,11 +13,16 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.messaging.FirebaseMessaging;
 
@@ -25,12 +31,22 @@ public class HomeActivity extends AppCompatActivity {
 
     NotificationCompat.Builder notification;
     private static final int uniqueID = 45612;
+    private TextView data;
+    private static final int ActivityNum = 0;
+    private Button sendNotif;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        setupViewPager();
+        setUpBottomNavigationView();
+        Button sendNotif = findViewById(R.id.sendNotif);
+        sendNotif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button(v);
+            }
+        });
 
 
         notification = new NotificationCompat.Builder(this);
@@ -47,29 +63,13 @@ public class HomeActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        String msg = "Succesful";
+                        String msg = "Loading fuel levels";
                         if (!task.isSuccessful()) {
                             msg = "Failed to receive notification";
                         }
                         Toast.makeText(HomeActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 });
-
-    }
-
-    private void setupViewPager() {
-        Sections_pager_adapter adapter = new Sections_pager_adapter(getSupportFragmentManager());
-        adapter.addFragment(new IOT_Fragment());
-        adapter.addFragment(new MapFragment());
-
-        ViewPager viewPager = (ViewPager) findViewById(R.id.container);
-        viewPager.setAdapter(adapter);
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_iot);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_petrol_pump);
 
     }
 
@@ -87,4 +87,13 @@ public class HomeActivity extends AppCompatActivity {
         NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
         nm.notify(uniqueID,notification.build());
     }
+
+    private void setUpBottomNavigationView(){
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomNavViewBar);
+        BottomNavigationViewHelper.enableNavigation(HomeActivity.this,bottomNavigationView);
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(ActivityNum);
+        menuItem.setChecked(true);
+    }
+
 }

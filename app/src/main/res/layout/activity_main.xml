@@ -5,23 +5,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/custom"
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="422dp"
+        android:layout_height="271dp"
+
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/tenor" />
+
     <EditText
+        android:id="@+id/phoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:hint="Enter Phone Number"
-        android:id="@+id/phoneNumber"/>
+        android:textColorHint="#ffffff" />
+
     <EditText
+        android:id="@+id/code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
         android:hint="Enter Code"
-        android:id="@+id/code"/>
+        android:textColorHint="#ffffff" />
+
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/send"
+        android:layout_width="289dp"
         android:layout_height="wrap_content"
-        android:text="Send Verification code"
-        android:id="@+id/send"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Send Verification code" />
 
 </LinearLayout>
