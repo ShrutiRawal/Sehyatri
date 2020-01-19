@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.lang.Double;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -39,6 +40,7 @@ public class HomeActivity extends AppCompatActivity {
     private static final int ActivityNum = 0;
     TextView display_fuel , data_fuel;
     DatabaseReference mreff;
+    double a=1.00000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +53,9 @@ public class HomeActivity extends AppCompatActivity {
         mreff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String fuel = dataSnapshot.child("distance").getValue().toString();
+                String fuel = dataSnapshot.child("volume").getValue().toString();
                 data_fuel.setText(fuel);
+               sendNotificationToDevice(fuel);
             }
 
             @Override
@@ -65,35 +68,45 @@ public class HomeActivity extends AppCompatActivity {
         notification = new NotificationCompat.Builder(this);
         notification.setAutoCancel(true);
 
-        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
-            NotificationChannel channel =
-                    new NotificationChannel("notif","notif", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
-
-        FirebaseMessaging.getInstance().subscribeToTopic("general")
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        String msg = "Loading fuel levels";
-                        if (!task.isSuccessful()) {
-                            msg = "Failed to receive notification";
-                        }
-                        Toast.makeText(HomeActivity.this, msg, Toast.LENGTH_SHORT).show();
-                    }
-                });
+    //    if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+      //      NotificationChannel channel =
+        //            new NotificationChannel("notif","notif", NotificationManager.IMPORTANCE_DEFAULT);
+          //  NotificationManager manager = getSystemService(NotificationManager.class);
+           // manager.createNotificationChannel(channel);
+        //}
+//
+  //      FirebaseMessaging.getInstance().subscribeToTopic("general")
+    //            .addOnCompleteListener(new OnCompleteListener<Void>() {
+      //              @Override
+        //            public void onComplete(@NonNull Task<Void> task) {
+          //              String msg = "Loading fuel levels";
+            //            if (!task.isSuccessful()) {
+              //              msg = "Failed to receive notification";
+                //        }
+                  //      Toast.makeText(HomeActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    //}
+                //});
 
     }
 
-    public void button(View view) {
+    public void sendNotificationToDevice(String string)
+    {
+        if(Double.compare(Double.parseDouble(string),a)<0)
+        {
+            final TextView data_fuel = (TextView)findViewById(R.id.data_fuel1);
+            data_fuel.setText(R.string.tank);
+            button();
+        }
+    }
+
+    public void button() {
         notification.setSmallIcon(R.drawable.ic_petrol_pump);
         notification.setTicker("Petrol Alert");
         notification.setWhen(System.currentTimeMillis());
         notification.setContentTitle("Petrol level low");
-        notification.setContentText("Refill tank soon to avoid inconvinience");
+        notification.setContentText("Petrol prices in your city = Rs. 75.71 per litre");
 
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this,MapsActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         notification.setContentIntent(pendingIntent);
 
