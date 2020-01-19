@@ -22,4 +22,11 @@
 
     </item>
 
+    <item
+        android:id="@+id/ratings"
+        android:title=""
+        android:icon="@drawable/ic_rating">
+
+    </item>
+
 </menu>
