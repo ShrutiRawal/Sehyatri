@@ -30,6 +30,11 @@ class BottomNavigationViewHelper {
                        Intent intent3 = new Intent(context,TravelActivity.class);
                        context.startActivity(intent3);
                        break;
+
+                   case R.id.ratings:
+                       Intent intent4 = new Intent(context,ratingActivity.class);
+                       context.startActivity(intent4);
+                       break;
                }
 
                return false;
