@@ -29,4 +29,11 @@
 
     </item>
 
+    <item
+        android:id="@+id/graph"
+        android:title=""
+        android:icon="@drawable/ic_graph">
+
+    </item>
+
 </menu>
