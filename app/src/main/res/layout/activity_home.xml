@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/custom"
+    android:background="@drawable/custom2"
     tools:context=".HomeActivity">
 
     <RelativeLayout
@@ -33,7 +33,7 @@
                 android:paddingTop="40dp"
                 android:layout_marginTop="-8dp"
                 android:foregroundGravity="center_horizontal"
-                app:srcCompat="@drawable/fuel" />
+                app:srcCompat="@drawable/fuel3" />
 
             <TextView
                 android:layout_width="wrap_content"
