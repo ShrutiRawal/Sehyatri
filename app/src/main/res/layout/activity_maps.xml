@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/map6"
+    android:background="@drawable/fuelbg"
     tools:context=".MapsActivity">
 
     <RelativeLayout
@@ -22,24 +22,25 @@
         android:id="@+id/relLayout3">
 
         <TextView
+            android:id="@+id/display_price1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_marginStart="89dp"
+            android:layout_marginTop="95dp"
             android:text="Petrol Price"
             android:textColor="#000000"
-            android:textSize="40sp"
-            android:id="@+id/display_price1"/>
+            android:textSize="40sp"/>
 
         <TextView
+            android:id="@+id/data_price1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/display_price1"
-            android:text="Rs. 75.51 per litre"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="73dp"
+            android:layout_marginTop="150dp"
+            android:text="Rs. 75.71 per litre"
             android:textColor="#000000"
-            android:textSize="40sp"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/data_price1"/>
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/button"
@@ -48,7 +49,7 @@
             android:background="@drawable/roundedbutton"
             android:text="Search for nearby petrol pumps"
             android:layout_below="@id/data_price1"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
 
