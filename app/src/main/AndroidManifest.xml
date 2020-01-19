@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ratingActivity"></activity>
+        <activity android:name=".GraphActivity"></activity>
+        <activity android:name=".ratingActivity" />
 
         <meta-data
             android:name="com.google.android.gms.version"
