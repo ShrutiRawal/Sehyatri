@@ -51,6 +51,15 @@
             android:layout_below="@id/data_price1"
             android:layout_centerHorizontal="true"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sendLoc"
+            android:text="send my location"
+            android:layout_below="@+id/button"
+            android:layout_centerHorizontal="true"
+            android:onClick="sendLocation"/>
+
     </RelativeLayout>
 
 
