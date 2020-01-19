@@ -26,6 +26,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,6 +44,8 @@ public class HomeActivity extends AppCompatActivity {
     DatabaseReference mreff;
     double a=1.00000;
     private ImageView imgView;
+    private FirebaseAnalytics mFirebaseAnalaytics;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         imgView = (ImageView)findViewById(R.id.imageView);
         TextView display_fuel = (TextView)findViewById(R.id.display_fuel1);
         final TextView data_fuel = (TextView)findViewById(R.id.data_fuel1);
+        mFirebaseAnalaytics = FirebaseAnalytics.getInstance(HomeActivity.this);
         mreff = FirebaseDatabase.getInstance().getReference();
         mreff.addValueEventListener(new ValueEventListener() {
             @Override
@@ -96,8 +100,8 @@ public class HomeActivity extends AppCompatActivity {
     {
         if(Double.compare(Double.parseDouble(string),a)<0)
         {
-            final TextView data_fuel = (TextView)findViewById(R.id.data_fuel1);
-            data_fuel.setText(R.string.tank);
+            //final TextView data_fuel = (TextView)findViewById(R.id.data_fuel1);
+            //data_fuel.setText(R.string.tank);
             button();
         }
     }
@@ -123,6 +127,20 @@ public class HomeActivity extends AppCompatActivity {
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(ActivityNum);
         menuItem.setChecked(true);
+    }
+
+    private void createGraph(View v){
+        Bundle params = new Bundle();
+        params.putInt("Fuel Amount",v.getId());
+        String distance;
+
+        switch (v.getId())
+        {
+            case R.id.data_distance:
+                distance = data_fuel.getText().toString();
+                break;
+
+        }
     }
 
 }
