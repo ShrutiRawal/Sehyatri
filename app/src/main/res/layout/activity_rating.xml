@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/custom2"
+    tools:context=".ratingActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rel">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/display_title"
+        android:text="Ratings"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"/>
+
+        <EditText
+            android:id="@+id/input_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/display_title"
+            android:padding="20dp"
+            android:hint="Enter the name of the place"/>
+
+        <EditText
+            android:id="@+id/input_quality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/input_place"
+            android:padding="20dp"
+            android:hint="Enter rating for quality of service"/>
+
+        <EditText
+            android:id="@+id/input_sanitation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/input_quality"
+            android:padding="20dp"
+            android:hint="Enter the rating for sanitation"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/submit"
+            android:layout_below="@+id/input_sanitation"
+            android:padding="20dp"
+            android:layout_centerHorizontal="true"
+            android:text="submit"
+            android:textColor="#000000"/>
+
+        <include layout="@layout/layout_bottom_navigation_view"></include>
+
+    </RelativeLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
