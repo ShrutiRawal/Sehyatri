@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.lang.Double;
@@ -41,12 +42,14 @@ public class HomeActivity extends AppCompatActivity {
     TextView display_fuel , data_fuel;
     DatabaseReference mreff;
     double a=1.00000;
+    private ImageView imgView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setUpBottomNavigationView();
+        imgView = (ImageView)findViewById(R.id.imageView);
         TextView display_fuel = (TextView)findViewById(R.id.display_fuel1);
         final TextView data_fuel = (TextView)findViewById(R.id.data_fuel1);
         mreff = FirebaseDatabase.getInstance().getReference();
