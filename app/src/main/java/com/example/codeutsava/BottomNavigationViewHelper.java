@@ -35,6 +35,11 @@ class BottomNavigationViewHelper {
                        Intent intent4 = new Intent(context,ratingActivity.class);
                        context.startActivity(intent4);
                        break;
+
+                   case R.id.graph:
+                       Intent intent5 = new Intent(context,GraphActivity.class);
+                       context.startActivity(intent5);
+                       break;
                }
 
                return false;
