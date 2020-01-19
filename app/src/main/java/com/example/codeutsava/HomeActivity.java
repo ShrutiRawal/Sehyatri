@@ -24,6 +24,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class HomeActivity extends AppCompatActivity {
@@ -33,6 +38,7 @@ public class HomeActivity extends AppCompatActivity {
     private static final int uniqueID = 45612;
     private static final int ActivityNum = 0;
     TextView display_fuel , data_fuel;
+    DatabaseReference mreff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +46,20 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         setUpBottomNavigationView();
         TextView display_fuel = (TextView)findViewById(R.id.display_fuel1);
-        TextView data_fuel = (TextView)findViewById(R.id.data_fuel1);
+        final TextView data_fuel = (TextView)findViewById(R.id.data_fuel1);
+        mreff = FirebaseDatabase.getInstance().getReference();
+        mreff.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String fuel = dataSnapshot.child("distance").getValue().toString();
+                data_fuel.setText(fuel);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
         notification = new NotificationCompat.Builder(this);
